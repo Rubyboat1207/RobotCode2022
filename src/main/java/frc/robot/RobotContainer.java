@@ -37,8 +37,8 @@ public class RobotContainer {
 
 //     private final PowerDistribution pdh = new PowerDistribution();
 
-    private final Xbox driver = new Xbox(0);
-    private final Joystick buttonBoard = new Joystick(1);
+    private final Xbox driver = new Xbox(01);
+    private final Joystick buttonBoard = new Joystick(0);
     private final LogitechExtreme3D operator = new LogitechExtreme3D(2);
 
     private final SendableChooser<AutonCommand.State> autonChooser;

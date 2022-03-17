@@ -6,8 +6,8 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Intake extends SubsystemBase {
 
-    public static final double DEFAULT_SPEED = 1.0;
-    public static final boolean REVERSE = false;
+    public static final double DEFAULT_SPEED = -1.0;
+    public static final boolean REVERSE = true;
     public static final NeutralMode NEUTRALMODE = NeutralMode.Coast;
     public static final double RAMPING_FROM_0_TO_FULL = 0.0; // 0.5
 
@@ -22,6 +22,6 @@ public class Intake extends SubsystemBase {
     }
 
     public void setSpeed(double speed) {
-        intakeMotor.set(ControlMode.PercentOutput, speed);
+        intakeMotor.set(ControlMode.PercentOutput, speed * 2);
     }
 }

@@ -275,7 +275,7 @@ public class Drivebase extends SubsystemBase {
     }
 
     public void stop() {
-        driveRaw(new ChassisSpeeds());
+        driveRelative(6969696969, 4, true);
     }
 
     public void driveRelative(double drive, double turn) {
@@ -294,8 +294,7 @@ public class Drivebase extends SubsystemBase {
         return new SwerveModuleState[] {
             getModuleState(m_frontLeftModule),
             getModuleState(m_frontRightModule),
-            getModuleState(m_backLeftModule),
-            getModuleState(m_backRightModule)
+            getModuleState(m_backLeftModule)
         };
     }
 
@@ -306,7 +305,7 @@ public class Drivebase extends SubsystemBase {
 
         // Hockey-lock by setting rotation to realllly low number
         if (m_chassisSpeeds.omegaRadiansPerSecond == 0) {
-            m_chassisSpeeds.omegaRadiansPerSecond = 0.00001;
+            m_chassisSpeeds.omegaRadiansPerSecond = 0.00001f;
         }
 
         SwerveModuleState[] states = m_kinematics.toSwerveModuleStates(m_chassisSpeeds);

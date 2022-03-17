@@ -11,6 +11,7 @@ import static java.lang.Math.min;
 
 /**
  * @author Aahana Shrivastava
+ * @author Rudy Soliz
  * @author Colin Wong
  */
 public class Climber extends SubsystemBase {
@@ -34,7 +35,7 @@ public class Climber extends SubsystemBase {
         motorHinge.setInverted(REVERSE_HINGE);
         motorHinge.setNeutralMode(NEUTRAL_MODE_HINGE);
 
-        motorExtend.configForwardSoftLimitEnable(true);
+        motorExtend.configForwardSoftLimitEnable(false);
         motorHinge.configForwardSoftLimitEnable(true);
         motorExtend.configReverseSoftLimitEnable(true);
         motorHinge.configReverseSoftLimitEnable(true);
@@ -49,11 +50,11 @@ public class Climber extends SubsystemBase {
     }
 
     public void setExtend(double speed) {
-        climberExtend.set(speed);
+        climberHinge.set(speed);
     }
 
     public void setHinge(double speed) {
-        climberHinge.set(speed);
+        climberExtend.set(speed);
     }
 
     public ClimberBase getExtend() {
@@ -76,7 +77,7 @@ public class Climber extends SubsystemBase {
         }
 
         public void calibrateMode(boolean value) {
-            motor.configForwardSoftLimitEnable(!value);
+            motor.configForwardSoftLimitEnable(value);
             motor.configReverseSoftLimitEnable(!value);
         }
     
@@ -89,7 +90,7 @@ public class Climber extends SubsystemBase {
         public ClimberExtend(WPI_TalonFX motor) {
             super(motor);
 
-            Constants.tab_subsystems.addNumber("Climber Extend Position", () -> motor.getSelectedSensorPosition());
+            Constants.tab_subsystems.addNumber("FUCK", () -> motor.getSelectedSensorPosition());
         }
     }
 
